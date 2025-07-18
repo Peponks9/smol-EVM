@@ -1,0 +1,20 @@
+smol-evm/
+  ├── src/
+  │   ├── main.rs         # CLI entry point, orchestrates the VM
+  │   ├── lib.rs          # Library root, re-exports modules
+  │   ├── evm/            # Core EVM logic
+  │   │   ├── mod.rs
+  │   │   ├── stack.rs    # Stack implementation
+  │   │   ├── memory.rs   # Memory implementation
+  │   │   ├── storage.rs  # Storage implementation
+  │   │   ├── opcodes.rs  # Opcode definitions and execution
+  │   │   ├── vm.rs       # The EVM itself (state machine)
+  │   ├── types/          # Common types, e.g., U256, Address
+  │   │   ├── mod.rs
+  │   │   ├── word.rs
+  │   │   ├── address.rs
+  │   ├── utils/          # Utilities/helpers
+  │   │   ├── mod.rs
+  │   └── tests/          # Integration tests
+  ├── Cargo.toml
+  └── README.md

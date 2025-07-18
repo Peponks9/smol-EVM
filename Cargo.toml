@@ -4,3 +4,12 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+# Alloy primitives for Ethereum types
+alloy-primitives = "0.1"
+alloy-rlp = "0.1"
+alloy-json-abi = "0.1"
+
+# Standard library additions
+thiserror = "1.0"           # Error handling
+serde = { version = "1.0", features = ["derive"] }  # Serialization
+hex = "0.4"                 # Hex encoding (if not using alloy's)
