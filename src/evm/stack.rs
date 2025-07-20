@@ -76,3 +76,42 @@ impl Stack {
         self.stack.len()
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use alloy_primitives::U256;
+
+    #[test]
+    fn test_stack_push_and_pop() {
+        let mut stack = Stack::new();
+        let value = U256::from(42);
+        assert!(stack.push(value).is_ok());
+        assert_eq!(stack.pop().unwrap(), value);
+    }
+
+    #[test]
+    fn test_stack_overflow() {
+        let mut stack = Stack::new();
+        for _ in 0..STACK_MAX_SIZE {
+            assert!(stack.push(U256::from(1)).is_ok());
+        }
+        // Next push should fail
+        assert_eq!(stack.push(U256::from(2)), Err(StackError::Overflow));
+    }
+
+    #[test]
+    fn test_stack_underflow() {
+        let mut stack = Stack::new();
+        assert_eq!(stack.pop(), Err(StackError::Underflow));
+    }
+
+    #[test]
+    fn test_stack_peek() {
+        let mut stack = Stack::new();
+        assert!(stack.peek().is_none());
+        let value = U256::from(99);
+        stack.push(value).unwrap();
+        assert_eq!(*stack.peek().unwrap(), value);
+    }
+}
