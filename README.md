@@ -8,10 +8,6 @@ A minimal, educational Ethereum Virtual Machine (EVM) implementation in Rust.
 - Modular and easy to understand codebase
 - Designed for learning and experimentation
 
-## Installation
-
-Make sure you have [Rust](https://www.rust-lang.org/tools/install) installed.
-
 ## Project Structure
 
 - `src/evm/` — Core EVM implementation
